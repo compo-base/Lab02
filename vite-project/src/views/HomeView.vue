@@ -1,17 +1,8 @@
-<template>
-  <div class="organizer">
-    <h1>Event Organizer Details</h1>
-    <div v-for="event in events" :key="event.id">
-      <EventOrganizer :event="event"></EventOrganizer>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
+import EventCard from '../components/EventCard.vue'
 import EventOrganizer from '../components/EventOrganizer.vue'
 import type { EventItem } from '@/type'
 import { ref } from 'vue'
-
 const events = ref<EventItem[]>([
   {
     id: 5928101,
@@ -46,12 +37,18 @@ const events = ref<EventItem[]>([
     petsAllowed: false,
     organizer: 'Carey Wales'
   }
-  // Here you can add the same event data you have in the previous component
 ])
 </script>
 
+<template>
+  <main class="events">
+    <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
+    <EventOrganizer v-for="event in events" :key="event.id" :event="event"></EventOrganizer>
+  </main>
+</template>
+
 <style scoped>
-.organizer {
+.events {
   display: flex;
   flex-direction: column;
   align-items: center;
