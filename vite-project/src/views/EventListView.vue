@@ -5,11 +5,10 @@ import type { EventItem } from '@/type'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 import EventService from '@/services/EventService'
-
+const events: Ref<Array<EventItem>> = ref([])
 EventService.getEvent().then((response) => {
   events.value = response.data
 })
-const events: Ref<Array<EventItem>> = ref([])
 </script>
 
 <template>
