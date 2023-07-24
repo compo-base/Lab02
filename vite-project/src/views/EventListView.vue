@@ -4,9 +4,9 @@ import EventOrganizer from '../components/EventOrganizer.vue'
 import type { EventItem } from '@/type'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
-import axios from 'axios'
+import EventService from '@/services/EventService'
 
-axios.get<EventItem[]>('http://localhost:3004/events').then((response) => {
+EventService.getEvent().then((response) => {
   events.value = response.data
 })
 const events: Ref<Array<EventItem>> = ref([])
