@@ -11,7 +11,11 @@ import type { studentInfo } from '@/student'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 const students: Ref<Array<studentInfo>> = ref([])
-StudentInfoService.getStudent().then((response) => {
-  students.value = response.data
-})
+StudentInfoService.getStudent()
+  .then((response) => {
+    students.value = response.data
+  })
+  .catch((error) => {
+    console.error('Error fetching students:', error)
+  })
 </script>

@@ -3,7 +3,7 @@ import axios from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios'
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3004',
+  baseURL: 'https://dv-student-backend-2019.appspot.com',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
